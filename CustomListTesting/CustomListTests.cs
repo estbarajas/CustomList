@@ -72,6 +72,35 @@ namespace CustomListTesting
             Assert.AreEqual(expected, theList[0]);
         }
 
+        public void Add_IndexZeroWithStrings_ReturnString()
+        {
+            //Arrange
+            CustomList<string> theList = new CustomList<string>() {};
+            string expected = "cat";
+            string value = "cat";
+
+            //Act
+            theList.Add(value);
+
+            //Assert
+            Assert.AreEqual(expected, theList[0]);
+        }
+
+        public void Add_IndexZeroWithObjects_ReturnString()
+        {
+            //Arrange
+            TheObject theObject = new TheObject();
+            CustomList<TheObject> theList = new CustomList<TheObject>() {};
+            TheObject expected = theObject;
+            TheObject objectValue = theObject;
+
+            //Act
+            theList.Add(objectValue);
+
+            //Assert
+            Assert.AreEqual(expected, theList[0]);
+        }
+
         public void Remove_IndexZeroHoldingOneValue_ReturnNull()
         {
             //Arrange
@@ -80,7 +109,7 @@ namespace CustomListTesting
             string actual;
 
             //Act
-            theList.Remove.ElementAt(0);
+            theList[0].Remove();
             actual = theList[0];
 
             //Assert
@@ -95,7 +124,7 @@ namespace CustomListTesting
             int actual;
 
             //Act
-            theList.Remove.ElementAt(0);
+            theList.Remove();
             actual = theList[0];
 
             //Assert
@@ -110,14 +139,45 @@ namespace CustomListTesting
             int actual;
 
             //Act
-            theList.Remove.ElementAt(0);
-            theList.Remove.ElementAt(5);
-            theList.Remove.ElementAt(6);
-            theList.Remove.ElementAt(2);
+            theList[0].Remove();
+            theList[5].Remove();
+            theList[6].Remove();
+            theList[2].Remove();
             actual = theList[0];
 
             //Assert
             Assert.AreEqual(expected, actual);
+        }
+
+        public void Remove_IndexZeroWithStrings_ReturnNumber()
+        {
+            //Arrange
+            CustomList<string> theList = new CustomList<string>() {"cat","dog","tree"};
+            int expected = "dog";
+            int actual;
+
+            //Act
+            theList[0].Remove();
+            actual = theList[0];
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        public void Remove_IndexZeroWithObjects_ReturnString()
+        {
+            //Arrange
+            TheObject theObject = new TheObject();
+            TheObject theObject2 = new TheObject();
+            CustomList<TheObject> theList = new CustomList<TheObject>() {theObject, theObject2};
+            TheObject expected = theObject2;
+            TheObject objectValue;
+
+            //Act
+            theList.Remove();
+
+            //Assert
+            Assert.AreEqual(expected, theList[0]);
         }
 
     }

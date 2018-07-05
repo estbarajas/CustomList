@@ -109,7 +109,7 @@ namespace CustomListTesting
             string actual;
 
             //Act
-            theList[0].Remove();
+            theList.Remove(10);
             actual = theList[0];
 
             //Assert
@@ -192,7 +192,7 @@ namespace CustomListTesting
             theList.Add(value);
 
             //Assert
-            Assert.AreEqual(expected, theList.Count());
+            Assert.AreEqual(expected, theList.Count);
         }
 
         public void Count_IndexZeroAfterRemoving_ReturnNumber() //2
@@ -236,6 +236,33 @@ namespace CustomListTesting
 
             //Assert
             Assert.AreEqual(expected, theList.Count());
+        }
+
+        public void Count_RemovingIncorrectValue_ReturnNumber() //4
+        {
+            //Arrange
+            CustomList<int> theList = new CustomList<int>() {10, 20, 30, 40};
+            int expected = 4;
+
+            //Act
+            theList.Remove(50);
+
+            //Assert
+            Assert.AreEqual(expected, theList.Count());
+        }
+
+        public void Count_RemovingTrue_ReturnBoolean()
+        {
+            //Arrange
+            CustomList<int> theList = new CustomList<int>() {10, 20, 30, 40};
+            bool expected = true;
+            bool actual;
+
+            //Act
+            actual = theList.Remove(30);
+
+            //Assert
+            Assert.AreEqual(expected, actual);
         }
     }
 }

@@ -9,28 +9,48 @@ namespace CustomList
 
     public class CustomList<T>
     {
-        private T[] arr = new T[100];
+        private T[] mainArray = new T[100];
 
         public T this[int i]
         {
-            get { return arr[i]; }
-            set { arr[i] = value; }
+            get { return mainArray[i]; }
+            set { mainArray[i] = value; }
         }
 
         public int Count;
+        public int nextIndex;
 
         public CustomList()
         {
- 
+            Count = 0;
+            nextIndex = 0;
         }
 
         public void Add(T passedValue)
-        {
-            arr[0] = passedValue;
-
-            foreach (T i in arr)
+        {            
+            if (nextIndex == 0)
             {
-                System.Console.Write("{0} ", i);
+                mainArray[0] = passedValue;
+                nextIndex++;
+                Count++;
+            }
+            else if (nextIndex >= 1)
+            {
+                mainArray[nextIndex++] = passedValue;
+                Count++;
+            }
+        }
+
+        public void Remove(T passedValue)
+        {
+
+        }
+
+        public void PrintArray()
+        {
+            foreach (T i in mainArray)
+            {
+                Console.WriteLine(i);
             }
         }
     }

@@ -15,12 +15,11 @@ namespace CustomListTesting
 
             //Act
             theList.Add(expected);
-            //theList.Add(150);
 
             //Assert
             Assert.AreEqual(expected, theList[0]);
         }
-        /*
+        
         [TestMethod]
         public void Add_IndexZeroWithTwoValues_ReturnNumber() //2
         {
@@ -36,7 +35,7 @@ namespace CustomListTesting
             //Assert
             Assert.AreEqual(expected, theList[0]);
         }
-
+        
         [TestMethod]
         public void Add_IndexZeroWithMultipleValues_ReturnNumber() //3
         {
@@ -59,64 +58,57 @@ namespace CustomListTesting
         }
 
         [TestMethod]
-        public void Add_PreExistingIndexZero_ReturnNumber() //4
-        {
-            //Arrange
-            CustomList<int> theList = new CustomList<int>(){10};
-            int expected = 20;
-            int value = 20;
-
-            //Act
-            theList[0].Add(value);
-
-            //Assert
-            Assert.AreEqual(expected, theList[0]);
-        }
-
         public void Add_IndexZeroWithStrings_ReturnString()
         {
             //Arrange
-            CustomList<string> theList = new CustomList<string>() {};
+            CustomList<string> theList = new CustomList<string>();
             string expected = "cat";
             string value = "cat";
 
             //Act
             theList.Add(value);
-
+            
             //Assert
             Assert.AreEqual(expected, theList[0]);
         }
 
+        [TestMethod]
         public void Add_IndexZeroWithObjects_ReturnReference()
         {
-            //Arrange
-            TheObject theObject = new TheObject();
-            CustomList<TheObject> theList = new CustomList<TheObject>() {};
-            TheObject expected = theObject;
-            TheObject objectValue = theObject;
-
+            //Arrange    
+            TheObject object1 = new TheObject();
+            CustomList<TheObject> theList = new CustomList<TheObject>();
+            TheObject expected = object1;
+            TheObject actual = theList[0];
+            
             //Act
-            theList.Add(objectValue);
-
+            theList.Add(expected);
+                  
             //Assert
             Assert.AreEqual(expected, theList[0]);
         }
-
+        /*
+        [TestMethod]
         public void Remove_IndexZeroHoldingOneValue_ReturnNull() //1
         {
             //Arrange
-            CustomList<int> theList = new CustomList<int>(){10};
+            CustomList<string> theList = new CustomList<string>();
             string expected = null;
             string actual;
 
             //Act
-            theList.Remove(10);
+            theList.Add("cat");
+
+            theList.Remove("cat");
+           
             actual = theList[0];
+           
 
             //Assert
             Assert.AreEqual(expected, actual);
         }
 
+        
         public void Remove_IndexZeroHoldingTwoValues_ReturnNumber() //2
         {
             //Arrange

@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-
+using CustomList;
 namespace CustomListTesting
 {
     [TestClass]
@@ -15,11 +15,12 @@ namespace CustomListTesting
 
             //Act
             theList.Add(expected);
+            //theList.Add(150);
 
             //Assert
             Assert.AreEqual(expected, theList[0]);
         }
-
+        /*
         [TestMethod]
         public void Add_IndexZeroWithTwoValues_ReturnNumber() //2
         {
@@ -264,5 +265,6 @@ namespace CustomListTesting
             //Assert
             Assert.AreEqual(expected, actual);
         }
+        */
     }
 }

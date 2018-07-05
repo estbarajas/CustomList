@@ -6,15 +6,32 @@ using System.Threading.Tasks;
 
 namespace CustomList
 {
+
     public class CustomList<T>
     {
-        
-        public int Count;
-        private T value;
+        private T[] arr = new T[100];
 
-        public CustomList(T value)
+        public T this[int i]
         {
-            this.value = value;
+            get { return arr[i]; }
+            set { arr[i] = value; }
+        }
+
+        public int Count;
+
+        public CustomList()
+        {
+ 
+        }
+
+        public void Add(T passedValue)
+        {
+            arr[0] = passedValue;
+
+            foreach (T i in arr)
+            {
+                System.Console.Write("{0} ", i);
+            }
         }
     }
 }

@@ -42,7 +42,7 @@ namespace CustomList
             }
         }
 
-        public void Remove(T valueToRemove)
+        public bool Remove(T valueToRemove)
         {
             bool itemWasRemoved = false;
             T[]temporaryArray = new T[Count-1];
@@ -65,7 +65,9 @@ namespace CustomList
                 }               
             }
             mainArray = temporaryArray;
+
             Count--;
+            return itemWasRemoved;
         }
 
         public void PrintArray()

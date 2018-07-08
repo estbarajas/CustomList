@@ -17,29 +17,27 @@ namespace CustomList
             set { mainArray[i] = value; }
         }
 
+        public int capacity;
         public int Count;
         public int nextIndex;
         //public int removeItem;
 
         public CustomList()
         {
+            capacity = 5;
+            mainArray = new T[capacity];
             Count = 0;
             nextIndex = 0;
         }
 
         public void Add(T valueToAdd)
         {            
-            if (nextIndex == 0)
+            if (Count >= capacity)
             {
-                mainArray[0] = valueToAdd;
-                nextIndex++;
-                Count++;
+
             }
-            else if (nextIndex >= 1)
-            {
-                mainArray[nextIndex++] = valueToAdd;
-                Count++;
-            }
+            mainArray[Count] = valueToAdd;
+            Count++;
         }
 
         public bool Remove(T valueToRemove)
@@ -65,7 +63,6 @@ namespace CustomList
                 }               
             }
             mainArray = temporaryArray;
-
             Count--;
             return itemWasRemoved;
         }

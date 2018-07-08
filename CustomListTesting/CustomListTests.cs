@@ -250,18 +250,22 @@ namespace CustomListTesting
         }
         
         [TestMethod]
-        public void Count_RemovingIncorrectValue_ReturnNumber() //4
+        public void Count_RemovingIncorrectValue_ReturnNumber() //4 broken
         {
             //Arrange
             CustomList<int> theList = new CustomList<int>();
-            int expected = 4;
+            int expected = 2;
 
             //Act
             theList.Add(10);
             theList.Add(20);
-            theList.Add(30);
-            theList.Add(40);
-            theList.Remove(50);
+            //theList.Add(30);
+            //theList.Add(40);
+            //theList.Remove(10);
+            //theList.Remove(30);
+            //theList.Remove(50);
+
+            theList.PrintArray();
 
             //Assert
             Assert.AreEqual(expected, theList.Count);

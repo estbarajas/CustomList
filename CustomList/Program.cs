@@ -10,7 +10,11 @@ namespace CustomList
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World"); ;
+            CustomList<int> thelister = new CustomList<int>();
+            thelister.Add(100);
+            thelister.Add(200);
+            thelister.Remove(300);
+            thelister.PrintArray();
             Console.ReadLine();
         }
     }

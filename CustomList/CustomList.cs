@@ -61,6 +61,10 @@ namespace CustomList
                     temporaryArray[i-1] = mainArray[i];
                 }
             }
+            if (itemWasRemoved == true)
+            {
+                Count--;
+            }
             mainArray = temporaryArray;
             return itemWasRemoved;
         }

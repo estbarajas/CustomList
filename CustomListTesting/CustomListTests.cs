@@ -139,7 +139,9 @@ namespace CustomListTesting
             }
 
             //theList.Remove(20);
-            //theList.Remove(30);
+            theList.Remove(40);
+            theList.Remove(50);
+            theList.Remove(90);
 
             actual = theList[0];
 

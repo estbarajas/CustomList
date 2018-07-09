@@ -87,7 +87,7 @@ namespace CustomListTesting
             //Assert
             Assert.AreEqual(expected, theList[0]);
         }
-        
+        /*
         [TestMethod]
         [ExpectedException(typeof(System.IndexOutOfRangeException))]
         public void Remove_IndexZeroHoldingOneValue_ReturnNull() //1
@@ -288,5 +288,6 @@ namespace CustomListTesting
             //Assert
             Assert.AreEqual(expected, actual);
         }
+        */
     }
 }

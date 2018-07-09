@@ -34,7 +34,7 @@ namespace CustomList
         {            
             if (Count >= capacity)
             {
-
+                ResizeArrayCapacity();
             }
             mainArray[Count] = valueToAdd;
             Count++;
@@ -74,6 +74,25 @@ namespace CustomList
                 Console.WriteLine(i);
             }
             Console.WriteLine("The count of the array is: " + Count + " elements.");
+        }
+
+        public void ResizeArrayCapacity()
+        {
+            capacity = capacity * 2;
+            T[] tempArray = new T[capacity];
+            CopyArray(Count - 1, tempArray, mainArray);
+            mainArray = tempArray;
+        }
+
+        public void CopyArray(int count, T[] tempArray, T[] mainArray)
+        {
+            for (int i=0; i <= count; i++)
+            {
+                if (i <= count)
+                {
+                    tempArray[i] = mainArray[i];
+                }
+            }
         }
     }
 }

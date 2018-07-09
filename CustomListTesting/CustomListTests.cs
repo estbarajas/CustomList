@@ -14,10 +14,10 @@ namespace CustomListTesting
             int expected = 10;
 
             //Act
-            theList.Add(expected);           
-  
+            theList.Add(expected);
+            
             //Assert
-            Assert.AreEqual(expected, theList[0]);           
+            Assert.AreEqual(expected, theList[0]);
         }
 
         [TestMethod]
@@ -101,6 +101,27 @@ namespace CustomListTesting
 
             //Assert
             Assert.AreEqual(expected, theList[0]);
+        }
+
+        [TestMethod]
+        public void Remove_IndexZeroWithRepeatingValues_ReturnNumber() //1
+        {
+            //Arrange
+            CustomList<int> theList = new CustomList<int>();
+            int expected = 10;
+
+            //Act
+            theList.Add(expected);
+            theList.Add(10);
+            theList.Add(20);
+            theList.Add(30);
+            theList.Add(20);
+
+            theList.Remove(20);
+
+            //Assert
+            Assert.AreEqual(expected, theList[0]);
+            theList.PrintArray();
         }
 
         [TestMethod]

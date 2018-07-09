@@ -11,15 +11,15 @@ namespace CustomListTesting
         {
             //Arrange
             CustomList<int> theList = new CustomList<int>();
-            int expected = 100;
+            int expected = 10;
 
             //Act
-            theList.Add(expected);
-
+            theList.Add(expected);           
+  
             //Assert
-            Assert.AreEqual(expected, theList[0]);
+            Assert.AreEqual(expected, theList[0]);           
         }
-        
+
         [TestMethod]
         public void Add_IndexZeroWithTwoValues_ReturnNumber() //2
         {
@@ -35,7 +35,7 @@ namespace CustomListTesting
             //Assert
             Assert.AreEqual(expected, theList[0]);
         }
-        
+
         [TestMethod]
         public void Add_IndexZeroWithMultipleValues_ReturnNumber() //3
         {
@@ -67,7 +67,7 @@ namespace CustomListTesting
 
             //Act
             theList.Add(value);
-            
+
             //Assert
             Assert.AreEqual(expected, theList[0]);
         }
@@ -80,22 +80,27 @@ namespace CustomListTesting
             CustomList<TheObject> theList = new CustomList<TheObject>();
             TheObject expected = object1;
             TheObject actual = theList[0];
-            
+
             //Act
             theList.Add(expected);
-                  
+
             //Assert
             Assert.AreEqual(expected, theList[0]);
         }
-        /*
+
         [TestMethod]
-        [ExpectedException(typeof(System.IndexOutOfRangeException))]
-        public void Remove_IndexZeroHoldingOneValue_ReturnNull() //1
+        public void Remove_IndexZeroHoldingOneValue_ReturnNumber() //1
         {
+            //Arrange
             CustomList<int> theList = new CustomList<int>();
+            int expected = 0;
+
+            //Act
             theList.Add(10);
             theList.Remove(10);
-            Console.WriteLine(theList[0]);
+
+            //Assert
+            Assert.AreEqual(expected, theList[0]);
         }
 
         [TestMethod]
@@ -103,19 +108,20 @@ namespace CustomListTesting
         {
             //Arrange
             CustomList<int> theList = new CustomList<int>();
-            int expected = 20;
+            int expected = 10;
             int actual;
 
             //Act
             theList.Add(10);
             theList.Add(20);
-            theList.Remove(10);
+            theList.Add(30);
+            theList.Remove(20);
             actual = theList[0];
 
             //Assert
             Assert.AreEqual(expected, actual);
         }
-        
+
         [TestMethod]
         public void Remove_IndexZeroHoldingMultipleValues_ReturnNumber() //3
         {
@@ -123,7 +129,7 @@ namespace CustomListTesting
             CustomList<int> theList = new CustomList<int>();
             int expected = 10;
             int actual;
-            int value = 0;
+            int value = 10;
 
             //Act
             for (int i = 0; i < 7; i++)
@@ -131,19 +137,17 @@ namespace CustomListTesting
                 theList.Add(value);
                 value += 10;
             }
-            theList.Remove(0);
-            //theList.Remove(20);
-            theList.Remove(40);
-            theList.Remove(50);
-            //theList.Remove(120);
-            actual = theList[0];
 
-            //theList.PrintArray();
+            //theList.Remove(20);
+            //theList.Remove(30);
+
+            actual = theList[0];
 
             //Assert
             Assert.AreEqual(expected, actual);
+            theList.PrintArray();
         }
-        
+        /*
         [TestMethod]
         public void Remove_IndexZeroWithStrings_ReturnString() //4
         {

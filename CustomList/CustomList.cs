@@ -19,15 +19,12 @@ namespace CustomList
 
         public int capacity;
         public int Count;
-        public int nextIndex;
-        //public int removeItem;
 
         public CustomList()
         {
             capacity = 5;
             mainArray = new T[capacity];
             Count = 0;
-            nextIndex = 0;
         }
 
         public void Add(T valueToAdd)
@@ -43,14 +40,16 @@ namespace CustomList
         public bool Remove(T valueToRemove)
         {
             bool itemWasRemoved = false;
-            T[]temporaryArray = new T[Count-1];
-            for(int i = 0; i < Count; i++)
+            T[] temporaryArray = new T[Count];
+            for (int i = 0; i < Count; i++)
             {
-                if(!itemWasRemoved)
+                if (!itemWasRemoved)
                 {
-                    if(mainArray[i].Equals(valueToRemove))
+                    if (mainArray[i].Equals(valueToRemove))
                     {
-                        itemWasRemoved = true;                       
+                        itemWasRemoved = true;
+                        
+                        Console.WriteLine("index value equals passedvalue");
                     }
                     else
                     {
@@ -59,11 +58,10 @@ namespace CustomList
                 }
                 else
                 {
-                    temporaryArray[i - 1] = mainArray[i];
-                }               
+                    temporaryArray[i-1] = mainArray[i];
+                }
             }
             mainArray = temporaryArray;
-            Count--;
             return itemWasRemoved;
         }
 

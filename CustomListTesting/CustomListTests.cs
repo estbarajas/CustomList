@@ -138,18 +138,15 @@ namespace CustomListTesting
                 value += 10;
             }
 
-            //theList.Remove(20);
             theList.Remove(40);
             theList.Remove(50);
-            theList.Remove(90);
 
             actual = theList[0];
 
             //Assert
             Assert.AreEqual(expected, actual);
-            theList.PrintArray();
         }
-        /*
+        
         [TestMethod]
         public void Remove_IndexZeroWithStrings_ReturnString() //4
         {
@@ -178,7 +175,6 @@ namespace CustomListTesting
             TheObject theObject2 = new TheObject();
             CustomList<TheObject> theList = new CustomList<TheObject>();
             TheObject expected = theObject;
-            TheObject objectValue;
 
             //Act
             theList.Add(theObject);
@@ -265,13 +261,8 @@ namespace CustomListTesting
             //Act
             theList.Add(10);
             theList.Add(20);
-            //theList.Add(30);
-            //theList.Add(40);
-            //theList.Remove(10);
-            //theList.Remove(30);
-            //theList.Remove(50);
-
-            theList.PrintArray();
+            
+            theList.Remove(50);
 
             //Assert
             Assert.AreEqual(expected, theList.Count);
@@ -289,11 +280,11 @@ namespace CustomListTesting
             theList.Add(10);
             theList.Add(20);
             theList.Add(30);
-            actual = theList.Remove(30);
+            actual = theList.Remove(20);
 
             //Assert
             Assert.AreEqual(expected, actual);
         }
-        */
+        
     }
 }

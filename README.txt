@@ -24,7 +24,7 @@ public static CustomList<T> operator -(CustomList<T> a, CustomList<T> b)
 }
 
 CustomList<int> theListOne = new CustomList<int>() {1,2,3};
-CustomList<int> theListTwo = new CustomList<int>() {4,5,6};
+CustomList<int> theListTwo = new CustomList<int>() {4,2,6};
 
 CustomList<int> RemoveFromTheTwoLists = theListOne - theListTwo;
 string prinRemoveFromTheTwoLists = RemoveFromTheTwoLists.ToString();

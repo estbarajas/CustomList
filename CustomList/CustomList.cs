@@ -121,6 +121,32 @@ namespace CustomList
             throw new NotImplementedException();
         }
 
+        public static CustomList<T> Zipper(CustomList<T> listOne, CustomList<T> listTwo)
+        {
+            CustomList<T> listZip = new CustomList<T>();
+            int largerListCount = 0;
+            if (listOne.Count > listTwo.Count)
+            {
+                largerListCount = listOne.Count;
+            }
+            else
+            {
+                largerListCount = listTwo.Count;
+            }
+            for (int i = 0; i < largerListCount; i++)
+            {
+                if (i < listOne.Count)
+                {
+                    listZip.Add(listOne[i]);
+                }
+                if (i < listTwo.Count)
+                {
+                    listZip.Add(listTwo[i]);
+                }
+            }
+            return listZip;
+        }
+
         public static CustomList<T> operator +(CustomList<T> listOne, CustomList<T> listTwo)
         {
             CustomList<T> resultList = new CustomList<T>();
@@ -137,11 +163,16 @@ namespace CustomList
 
         public static CustomList<T> operator -(CustomList<T> listOne, CustomList<T> listTwo)
         {
-            foreach (T t in listTwo)
-            {
-                listOne.Remove(t);
+            CustomList<T> resultList;           
+            for (int i = 0; i < listOne.Count; i++)
+            {                
+                    if ((listOne[i].Equals(listTwo[i])))
+                    {
+                        listTwo.Remove(listTwo[i]);
+                    }                  
             }
-            return listOne;
+            resultList = listOne + listTwo;
+            return resultList;
         }
     }
 }

@@ -10,20 +10,8 @@ namespace CustomList
     {
         static void Main(string[] args)
         {
-            //CustomList<int> thelister = new CustomList<int>();
-            //thelister.Add(100);
-            //thelister.Add(200);
-            //thelister.Remove(300);
-            ////thelister.PrintArray();
-
-            //foreach(int number in thelister)
-            //{
-            //    Console.WriteLine(number);
-            //}
-            //Console.ReadLine();
-
             CustomList<int> theListOne = new CustomList<int>() {1,2,3};
-            CustomList<int> theListTwo = new CustomList<int>() {5,2,4};
+            CustomList<int> theListTwo = new CustomList<int>() {4,2,5};
 
             CustomList<int> ZipTwoLists = theListOne.Zip(theListTwo);
             string printZipTwoLists = ZipTwoLists.ToString();

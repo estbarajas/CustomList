@@ -164,7 +164,7 @@ namespace CustomList
 
         public static CustomList<T> operator -(CustomList<T> listOne, CustomList<T> listTwo)
         {
-            if(listOne != null && listTwo != null)
+            if (listOne != null && listTwo != null)
             {
                 for (int i = 0; i < listTwo.Count; i++)
                 {

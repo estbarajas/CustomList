@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 namespace CustomList
 {
 
-    public class CustomList<T> : IEnumerable<T> where T : IComparable
+    public class CustomList<T> : IEnumerable<T>
+    
     {
         private T[] mainArray = new T[100];
 
@@ -48,9 +49,8 @@ namespace CustomList
                 {
                     if (mainArray[i].Equals(valueToRemove))
                     {
-                        itemWasRemoved = true;
-                        
-                        Console.WriteLine("index value equals passedvalue");
+                        itemWasRemoved = true;        
+                       // Console.WriteLine("index value equals passedvalue");
                     }
                     else
                     {
@@ -69,7 +69,7 @@ namespace CustomList
             mainArray = temporaryArray;
             return itemWasRemoved;
         }
-
+        /*
         public void PrintArray()
         {
             foreach (T i in mainArray)
@@ -78,7 +78,7 @@ namespace CustomList
             }
             Console.WriteLine("The count of the array is: " + Count + " elements.");
         }
-
+        */
         public void ResizeArrayCapacity()
         {
             capacity = capacity * 2;
@@ -121,28 +121,29 @@ namespace CustomList
             throw new NotImplementedException();
         }
 
-        public static CustomList<T> Zipper(CustomList<T> listOne, CustomList<T> listTwo)
+        public CustomList<T> Zip(CustomList<T> passedList)
         {
             CustomList<T> listZip = new CustomList<T>();
-            int largerListCount = 0;
-            if (listOne.Count > listTwo.Count)
+            if (Count == passedList.Count)
             {
-                largerListCount = listOne.Count;
-            }
-            else
-            {
-                largerListCount = listTwo.Count;
-            }
-            for (int i = 0; i < largerListCount; i++)
-            {
-                if (i < listOne.Count)
+                for (int i = 0; i < Count; i++)
                 {
-                    listZip.Add(listOne[i]);
+                    listZip.Add(mainArray[i]);
+                    listZip.Add(passedList[i]);
                 }
-                if (i < listTwo.Count)
+                return listZip;
+            }
+            else if (Count > passedList.Count)
+            {
+                for (int i = 0; i < Count; i++)
                 {
-                    listZip.Add(listTwo[i]);
+                    listZip.Add(mainArray[i]);
+                    if (passedList.Count > i)
+                    {
+                        listZip.Add(passedList[i]);
+                    }
                 }
+                return listZip;
             }
             return listZip;
         }
@@ -163,16 +164,14 @@ namespace CustomList
 
         public static CustomList<T> operator -(CustomList<T> listOne, CustomList<T> listTwo)
         {
-            CustomList<T> resultList;           
-            for (int i = 0; i < listOne.Count; i++)
-            {                
-                    if ((listOne[i].Equals(listTwo[i])))
-                    {
-                        listTwo.Remove(listTwo[i]);
-                    }                  
+            if(listOne != null && listTwo != null)
+            {
+                for (int i = 0; i < listTwo.Count; i++)
+                {
+                    listOne.Remove(listTwo.mainArray[i]);
+                }
             }
-            resultList = listOne + listTwo;
-            return resultList;
+            return listOne;
         }
     }
 }

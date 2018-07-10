@@ -23,23 +23,20 @@ namespace CustomList
             //Console.ReadLine();
 
             CustomList<int> theListOne = new CustomList<int>() {1,2,3};
-            CustomList<int> theListTwo = new CustomList<int>() {4,5,6};
-            CustomList<int> theResult = theListOne + theListTwo;
-            CustomList<int> theResult2 = theListOne - theListTwo;
-            CustomList<int> theResult3 = theResult3.Zipper(theListOne,theListTwo));
+            CustomList<int> theListTwo = new CustomList<int>() {5,2,4};
 
-            theListOne.ToString();
+            CustomList<int> ZipTwoLists = theListOne.Zip(theListTwo);
+            string printZipTwoLists = ZipTwoLists.ToString();
+            Console.WriteLine(printZipTwoLists);
 
-            //foreach(int number in theResult)
-            //{
-            //    Console.WriteLine(number);
-            //}
-            
+            CustomList<int> AddTwoLists = theListOne + theListTwo;
+            string printAddTwoLists = AddTwoLists.ToString();
+            Console.WriteLine(printAddTwoLists);
 
-            string printy = theResult.ToString();
-            string printy2 = theResult2.ToString();
-            Console.WriteLine(printy);
-            Console.WriteLine(printy2);
+            CustomList<int> RemoveFromTheTwoLists = theListOne - theListTwo;
+            string prinRemoveFromTheTwoLists = RemoveFromTheTwoLists.ToString();
+            Console.WriteLine(prinRemoveFromTheTwoLists);
+
             Console.ReadLine();
         }
     }

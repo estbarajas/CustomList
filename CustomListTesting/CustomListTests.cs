@@ -121,7 +121,6 @@ namespace CustomListTesting
 
             //Assert
             Assert.AreEqual(expected, theList[0]);
-            theList.PrintArray();
         }
 
         [TestMethod]
@@ -306,6 +305,203 @@ namespace CustomListTesting
             //Assert
             Assert.AreEqual(expected, actual);
         }
-        
+
+        [TestMethod]
+        public void Zip_JoinTwoListsCount_ReturnList()
+        {
+            //Arrange
+            CustomList<int> theList = new CustomList<int>() {1,2,3};
+            CustomList<int> theList2 = new CustomList<int>() {4,2,6};
+            int expected = 6;
+
+            //Act
+            CustomList<int> ZipTwoLists = theList.Zip(theList2);
+
+            //Assert
+            Assert.AreEqual(expected, ZipTwoLists.Count);
+        }
+
+        [TestMethod]
+        public void Zip_IndexOneListValue_ReturnList()
+        {
+            //Arrange
+            CustomList<int> theList = new CustomList<int>() { 1, 2, 3 };
+            CustomList<int> theList2 = new CustomList<int>() { 4, 2, 6 };
+            int expected = 4;
+
+            //Act
+            CustomList<int> ZipTwoLists = theList.Zip(theList2);
+
+            //Assert
+            Assert.AreEqual(expected, ZipTwoLists[1]);
+        }
+
+        [TestMethod]
+        public void Zip_LastIndexListValue_ReturnList()
+        {
+            //Arrange
+            CustomList<int> theList = new CustomList<int>() { 1, 2, 3 };
+            CustomList<int> theList2 = new CustomList<int>() { 4, 2, 6 };
+            int expected = 6;
+
+            //Act
+            CustomList<int> ZipTwoLists = theList.Zip(theList2);
+
+            //Assert
+            Assert.AreEqual(expected, ZipTwoLists[5]);
+        }
+
+        [TestMethod]
+        public void Zip_IndexOneStringVersion_ReturnList()
+        {
+            //Arrange
+            CustomList<string> theList = new CustomList<string>() { "cat", "dog", "lizard" };
+            CustomList<string> theList2 = new CustomList<string>() { "fish","bear", "lion"};
+            string expected = "fish";
+
+            //Act
+            CustomList<string> ZipTwoLists = theList.Zip(theList2);
+
+            //Assert
+            Assert.AreEqual(expected, ZipTwoLists[1]);
+        }
+
+        [TestMethod]
+        public void Zip_IndexOneObjectVersion_ReturnList()
+        {
+            //Arrange
+            TheObject object1 = new TheObject();
+            TheObject object2 = new TheObject();
+            TheObject expected = object2;
+            CustomList<TheObject> theList = new CustomList<TheObject>() { object1 };
+            CustomList<TheObject> theList2 = new CustomList<TheObject>() { object2 };
+
+            //Act
+            CustomList<TheObject> ZipTwoLists = theList.Zip(theList2);
+
+            //Assert
+            Assert.AreEqual(expected, ZipTwoLists[1]);
+        }
+
+        [TestMethod]
+        public void AddOperator_AddListsCount_ReturnList()
+        {
+            //Arrange
+            CustomList<int> theList = new CustomList<int>() { 1, 2, 3 };
+            CustomList<int> theList2 = new CustomList<int>() { 4, 5, 6 };
+            int expected = 6;
+
+            //Act
+            CustomList<int> AddTwoLists = theList+theList2;
+
+            //Assert
+            Assert.AreEqual(expected, AddTwoLists.Count);
+        }
+
+        [TestMethod]
+        public void AddOperator_AddIndexOneListValue_ReturnList()
+        {
+            //Arrange
+            CustomList<int> theList = new CustomList<int>() { 1, 2, 3 };
+            CustomList<int> theList2 = new CustomList<int>() { 4, 5, 6 };
+            int expected = 2;
+
+            //Act
+            CustomList<int> AddTwoLists = theList+theList2;
+
+            //Assert
+            Assert.AreEqual(expected, AddTwoLists[1]);
+        }
+
+        [TestMethod]
+        public void AddOperator_AddIndexLastListValue_ReturnList()
+        {
+            //Arrange
+            CustomList<int> theList = new CustomList<int>() { 1, 2, 3 };
+            CustomList<int> theList2 = new CustomList<int>() { 4, 5, 6 };
+            int expected = 6;
+
+            //Act
+            CustomList<int> AddTwoLists = theList+theList2;
+
+            //Assert
+            Assert.AreEqual(expected, AddTwoLists[5]);
+        }
+
+        [TestMethod]
+        public void AddOperator_AddIndexOneStringVersion_ReturnList()
+        {
+            //Arrange
+            CustomList<string> theList = new CustomList<string>() {"cat","dog","fish"};
+            CustomList<string> theList2 = new CustomList<string>() {"lion","tiger","whale"};
+            string expected = "dog";
+
+            //Act
+            CustomList<string> AddTwoLists = theList+theList2;
+
+            //Assert
+            Assert.AreEqual(expected, AddTwoLists[1]);
+        }
+
+        [TestMethod]
+        public void RemoveOperator_ListsCount_ReturnList()
+        {
+            //Arrange
+            CustomList<int> theList = new CustomList<int>() { 1, 2, 3 };
+            CustomList<int> theList2 = new CustomList<int>() { 4, 5, 6 };
+            int expected = 3;
+
+            //Act
+            CustomList<int> AddTwoLists = theList - theList2;
+
+            //Assert
+            Assert.AreEqual(expected, AddTwoLists.Count);
+        }
+
+        [TestMethod]
+        public void RemoveOperator_IndexOneListValue_ReturnList()
+        {
+            //Arrange
+            CustomList<int> theList = new CustomList<int>() { 1, 2, 3 };
+            CustomList<int> theList2 = new CustomList<int>() { 4, 5, 6 };
+            int expected = 2;
+
+            //Act
+            CustomList<int> AddTwoLists = theList - theList2;
+
+            //Assert
+            Assert.AreEqual(expected, AddTwoLists[1]);
+        }
+
+        [TestMethod]
+        public void RemoveOperator_IndexLastListValue_ReturnList()
+        {
+            //Arrange
+            CustomList<int> theList = new CustomList<int>() { 1, 2, 3 };
+            CustomList<int> theList2 = new CustomList<int>() { 4, 2, 6 };
+            int expected = 3;
+
+            //Act
+            CustomList<int> AddTwoLists = theList - theList2;
+
+            //Assert
+            Assert.AreEqual(expected, AddTwoLists[1]);
+        }
+
+        [TestMethod]
+        public void RemoveOperator_IndexOneStringVersion_ReturnList()
+        {
+            //Arrange
+            CustomList<string> theList = new CustomList<string>() { "cat", "dog", "fish" };
+            CustomList<string> theList2 = new CustomList<string>() { "lion", "tiger", "whale" };
+            string expected = "dog";
+
+            //Act
+            CustomList<string> AddTwoLists = theList - theList2;
+
+            //Assert
+            Assert.AreEqual(expected, AddTwoLists[1]);
+        }
+
     }
 }

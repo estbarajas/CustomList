@@ -22,12 +22,24 @@ namespace CustomList
             //}
             //Console.ReadLine();
 
-            CustomList<int> theListOne = new CustomList<int>();
-            CustomList<int> theListTwo = new CustomList<int>();
-            CustomList<int> theListTotals = new CustomList<int>();
+            CustomList<int> theListOne = new CustomList<int>() {1,2,3};
+            CustomList<int> theListTwo = new CustomList<int>() {4,2,6};
+            CustomList<int> theResult = theListOne + theListTwo;
+            CustomList<int> theResult2 = theListOne - theListTwo;
 
+            theListOne.ToString();
 
+            //foreach(int number in theResult)
+            //{
+            //    Console.WriteLine(number);
+            //}
+            
 
+            string printy = theResult.ToString();
+            string printy2 = theResult2.ToString();
+            Console.WriteLine(printy);
+            Console.WriteLine(printy2);
+            Console.ReadLine();
         }
     }
 }

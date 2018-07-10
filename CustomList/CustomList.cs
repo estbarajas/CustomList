@@ -98,6 +98,16 @@ namespace CustomList
             }
         }
 
+        public override string ToString()
+        {
+            string arrayValue = "";
+            for (int i = 0; i < Count; i++)
+            {
+                arrayValue += mainArray[i] + " ";
+            }
+            return arrayValue;
+        }
+
         public IEnumerator<T> GetEnumerator()
         {
             for (int i = 0; i < Count; i++)
@@ -113,16 +123,25 @@ namespace CustomList
 
         public static CustomList<T> operator +(CustomList<T> listOne, CustomList<T> listTwo)
         {
-            CustomList<T> addedList = new CustomList<T>();
-            foreach (T element in listOne)
+            CustomList<T> resultList = new CustomList<T>();
+            foreach (T t in listOne)
             {
-                addedList.Add(element);
+                resultList.Add(t);
             }
-            foreach (T element in listTwo)
+            foreach (T t in listTwo)
             {
-                addedList.Add(element);
+                resultList.Add(t);
             }
-            return addedList;
+            return resultList;
+        }
+
+        public static CustomList<T> operator -(CustomList<T> listOne, CustomList<T> listTwo)
+        {
+            foreach (T t in listTwo)
+            {
+                listOne.Remove(t);
+            }
+            return listOne;
         }
     }
 }

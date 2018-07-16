@@ -20,13 +20,17 @@ namespace CustomList
         }
 
         public int capacity;
-        public int Count;
+        public int count;
+        public int Count
+        {
+            get { return count;}
+        }
 
         public CustomList()
         {
             capacity = 5;
             mainArray = new T[capacity];
-            Count = 0;
+            count = 0;
         }
 
         public void Add(T valueToAdd)
@@ -36,7 +40,7 @@ namespace CustomList
                 ResizeArrayCapacity();
             }
             mainArray[Count] = valueToAdd;
-            Count++;
+            count++;
         }
 
         public bool Remove(T valueToRemove)
@@ -64,7 +68,7 @@ namespace CustomList
             }
             if (itemWasRemoved == true)
             {
-                Count--;
+                count--;
             }
             mainArray = temporaryArray;
             return itemWasRemoved;
